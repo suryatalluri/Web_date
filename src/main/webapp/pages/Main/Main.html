@@ -1,11 +1,73 @@
 <wm-page data-ng-controller="MainPageController" name="mainpage" pagetitle="Main">
-    <wm-header content="header" name="header" height="auto"></wm-header>
+    <wm-header name="header" content="header" height="auto"></wm-header>
     <wm-top-nav name="topnav" content="topnav"></wm-top-nav>
     <wm-content name="content">
-        <wm-left-panel columnwidth="2" name="leftpanel" content="leftnav"></wm-left-panel>
-        <wm-page-content columnwidth="8" paddingleft="15" paddingright="15" name="mainContent">
+        <wm-left-panel name="leftpanel" content="leftnav" columnwidth="2"></wm-left-panel>
+        <wm-page-content name="mainContent" columnwidth="8" padding="unset 15px">
+            <wm-composite name="composite1">
+                <wm-label class="col-md-3 control-label" caption="bind:Widgets.date1.datavalue" name="label1"></wm-label>
+                <wm-container class="col-md-9" name="container1">
+                    <wm-date name="date1" outputformat="M/d/yyyy"></wm-date>
+                </wm-container>
+            </wm-composite>
+            <wm-composite name="composite2">
+                <wm-label class="col-md-3 control-label" caption="bind:Widgets.datetime1.datavalue" name="label2"></wm-label>
+                <wm-container class="col-md-9" name="container2">
+                    <wm-datetime name="datetime1" outputformat="yyyy-MM-ddTHH:mm:ss"></wm-datetime>
+                </wm-container>
+            </wm-composite>
+            <wm-composite name="composite3">
+                <wm-label class="col-md-3 control-label" caption="bind:Widgets.time1.datavalue" name="label3"></wm-label>
+                <wm-container class="col-md-9" name="container3">
+                    <wm-time name="time1" outputformat="hh:mm a" timepattern="HH:mm"></wm-time>
+                </wm-container>
+            </wm-composite>
+            <wm-composite name="composite4">
+                <wm-label class="col-md-3 control-label" name="label4"></wm-label>
+                <wm-container class="col-md-9" name="container4">
+                    <wm-time name="time2" timepattern="HH:mm:ss"></wm-time>
+                </wm-container>
+            </wm-composite>
+            <wm-search name="search1" dataset="bind:Variables.liveVariable1.dataSet" datafield="firstname" searchkey="firstname" displaylabel="firstname" displayimagesrc="picurl"></wm-search>
+            <wm-label caption="bind:Widgets.search1.datavalue" name="label5" padding="unset 0.5em"></wm-label>
+            <wm-liveform title="Zips Info" name="liveform1" iconclass="wi wi-edit" captionposition="top" dataset="bind:Variables.CitiesZipsData.dataSet" errormessage="" novalidate="false" defaultmode="Edit" captionalign="left">
+                <wm-layoutgrid name="layoutgrid1" columns="1">
+                    <wm-gridrow name="gridrow1">
+                        <wm-gridcolumn name="gridcolumn1" columnwidth="12">
+                            <wm-form-field type="integer" readonly="false" show="true" name="zip" required="true" placeholder="Enter value" widget="number" step="0" key="zip" primary-key="false" generator="assigned" displayname="Zip" inputtype="number"></wm-form-field>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                    <wm-gridrow name="gridrow2">
+                        <wm-gridcolumn name="gridcolumn2" columnwidth="12">
+                            <wm-form-field type="string" readonly="false" show="true" name="state" required="false" placeholder="Enter value" dataset="bind:Variables.CitiesZipsData.dataSet" displayfield="state" datafield="state" widget="switch" key="state"
+                            primary-key="false" generator="assigned" displayname="State" maxchars="2" inputtype="text"></wm-form-field>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                    <wm-gridrow name="gridrow3">
+                        <wm-gridcolumn name="gridcolumn3" columnwidth="12">
+                            <wm-form-field type="string" readonly="false" show="true" name="city" required="false" placeholder="Search" dataset="bind:Variables.CitiesZipsData.dataSet" datafield="city" widget="autocomplete" searchkey="city" displaylabel="city"
+                            key="city" primary-key="false" generator="assigned" displayname="City" maxchars="16"></wm-form-field>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                    <wm-gridrow name="gridrow4">
+                        <wm-gridcolumn name="gridcolumn4" columnwidth="12">
+                            <wm-form-field type="string" readonly="false" show="true" name="lat" required="false" placeholder="Enter value" dataset="bind:Variables.CitiesZipsData.dataSet" displayfield="lat" datafield="lat" widget="select" key="lat" primary-key="false"
+                            generator="assigned" displayname="Lat" maxchars="255" inputtype="text"></wm-form-field>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                    <wm-gridrow name="gridrow5">
+                        <wm-gridcolumn name="gridcolumn5" columnwidth="12">
+                            <wm-form-field type="string" readonly="false" show="true" name="lng" required="false" placeholder="Enter value" widget="text" key="lng" primary-key="false" generator="assigned" displayname="Lng" maxchars="255" inputtype="text"></wm-form-field>
+                        </wm-gridcolumn>
+                    </wm-gridrow>
+                </wm-layoutgrid>
+                <!--?XML:NAMESPACE PREFIX = "PUBLIC" NS = "URN:COMPONENT" /-->
+                <wm-form-action title="Reset" disabled="false" class="form-reset btn-secondary" type="button" show="true" iconclass="wi wi-refresh" key="reset" update-mode="true" display-name="Reset" action="reset()"></wm-form-action>
+                <!--?XML:NAMESPACE PREFIX = "PUBLIC" NS = "URN:COMPONENT" /-->
+                <wm-form-action title="Save" disabled="false" class="form-save btn-success" type="submit" show="true" iconclass="wi wi-save" key="save" update-mode="true" display-name="Save"></wm-form-action>
+            </wm-liveform>
         </wm-page-content>
-        <wm-right-panel columnwidth="2" name="rightpanel" content="rightnav"></wm-right-panel>
+        <wm-right-panel name="rightpanel" content="rightnav" columnwidth="2"></wm-right-panel>
     </wm-content>
     <wm-footer name="footer" content="footer"></wm-footer>
 </wm-page>

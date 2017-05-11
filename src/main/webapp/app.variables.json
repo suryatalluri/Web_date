@@ -15,6 +15,28 @@
     } ],
     "operation" : "toast"
   },
+  "goToPage_calendar" : {
+    "_id" : "wm-goToPage_calendar-wm.NavigationVariable-1494495861639",
+    "name" : "goToPage_calendar",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "calendar",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
+  "goToPage_live_widgets" : {
+    "_id" : "wm-goToPage_live_widgets-wm.NavigationVariable-1494483372925",
+    "name" : "goToPage_live_widgets",
+    "owner" : "App",
+    "category" : "wm.NavigationVariable",
+    "dataBinding" : [ ],
+    "operation" : "gotoPage",
+    "pageName" : "live_widgets",
+    "dataSet" : [ ],
+    "pageTransitions" : "none"
+  },
   "goToPage_Main" : {
     "_id" : "wm-wm.NavigationVariable1389180517517",
     "name" : "goToPage_Main",
